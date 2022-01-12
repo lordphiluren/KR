@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{EE5B7D58-4A28-49F3-90EB-818A2F40F641}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineBlank", "ClassLibrary1\VaccineBlank.csproj", "{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE5B7D58-4A28-49F3-90EB-818A2F40F641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5B7D58-4A28-49F3-90EB-818A2F40F641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5B7D58-4A28-49F3-90EB-818A2F40F641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5B7D58-4A28-49F3-90EB-818A2F40F641}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6662221B-A9A8-4754-A8B9-C6E56832338A}
+	EndGlobalSection
+EndGlobal
