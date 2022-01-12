@@ -18,14 +18,14 @@ namespace VaccineBlank
         {
             get
             {
-                return (@"C:\VaccinationPoint\Patient.json");
+                return (@"Patient.json");
             }
         }
         public static string PathStorage
         {
             get
             {
-                return (@"C:\VaccinationPoint\Storage.json");
+                return (@"Storage.json");
             }
         }
 
