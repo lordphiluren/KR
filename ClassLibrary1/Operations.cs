@@ -97,10 +97,5 @@ namespace VaccineBlank
             patients = sortPatient.ToList();
             return sortPatient.ToList();
         }
-        //public static List<string> Graph(string city)
-        //{
-        //    List<string> tempString = new List<string>();
-        //    foreach
-        //}
     }
 }
