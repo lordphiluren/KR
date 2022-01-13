@@ -12,15 +12,14 @@ namespace VaccineBlank
 {
     public class Operations
     {
-        public static string[] AddCities()
+        public static List<string> AddCities()
         {
-            string[] cities = new string[] { "Мурманск", "Оленегорск", "Мончегорск", "Апатиты", "Кировск", "Кандалакша" };
+            List<string> cities = new List<string>() { "Мурманск", "Оленегорск", "Мончегорск", "Апатиты", "Кировск", "Кандалакша" };
             return cities;
         }
         
         public static string CountPatientsRegion()
         {
-            
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
             string count = patients.Count().ToString();
@@ -97,5 +96,6 @@ namespace VaccineBlank
             patients = sortPatient.ToList();
             return sortPatient.ToList();
         }
+
     }
 }

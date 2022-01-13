@@ -16,7 +16,7 @@ namespace WinForms
         public Statistics()
         {
             InitializeComponent();
-            string[] cities = Operations.AddCities();
+            List<string> cities = Operations.AddCities();
             comboBox1.DataSource = cities;
             textBoxVaccinatedPeopleAmount.Text = Operations.CountPatientsRegion();
             textBoxVaccinatedMoreThanOnce.Text = Operations.CountMoreThanOnceVaccinedPatientsRegion();

@@ -16,7 +16,7 @@ namespace WinForms
         public Table()
         {
             InitializeComponent();
-            string[] cities = Operations.AddCities();
+            List<string> cities = Operations.AddCities();
             comboBoxCities.DataSource = cities;
             dataGridView1.DataSource = Operations.CreateSortByCityPatientList(comboBoxCities.Text);
             dataGridView1.Columns["PassportSeries"].Visible = false;

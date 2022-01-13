@@ -33,7 +33,7 @@ namespace WinForms
                 comboBoxVaccineType.DisplayMember = "Type";
                 comboBoxVaccineType.ValueMember = "Type";
             }
-            string[] cities = Operations.AddCities();
+            List<string> cities = Operations.AddCities();
             comboBoxCOV.DataSource = cities;
 
 

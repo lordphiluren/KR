@@ -16,24 +16,21 @@ namespace WinForms
         public Graphs()
         {
             InitializeComponent();
-            string[] cities = Operations.AddCities();
-            comboBox1.DataSource = cities;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.chart1.Series[0].Points.Clear();
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
-            
-            this.chart1.Series[0].Points.Clear();
-            var groupPatients = patients.GroupBy(p => p.VaccineDate)
-                                        .Select(g => new { Date = g.Key, Count = g.Count() });
-            foreach(var group in groupPatients)
+
+            var groupPatients = patients.GroupBy(p => p.VaccineDate.Date)
+                            .Select(g => new { VDate = g.Key, Count = g.Count() });
+            foreach (var group in groupPatients)
             {
-                    this.chart1.Series[0].Points.AddXY(group.Date, group.Count);
+                this.chart1.Series[0].Points.AddXY(group.VDate, group.Count);
             }
 
-            /////////////////////////////////////
             this.chart2.Series[0].Points.Clear();
             var groupCities = patients.GroupBy(p => p.CityOfVaccination)
                                         .Select(g => new { City = g.Key, Count = g.Count() });
@@ -41,7 +38,7 @@ namespace WinForms
             {
                 this.chart2.Series[0].Points.AddXY(group.City, group.Count);
             }
-            /////////////////////////////////////
+
             this.chart3.Series[0].Points.Clear();
             var groupVaccines = patients.GroupBy(p => p.VaccineType)
                                         .Select(g => new { VaccineType = g.Key, Count = g.Count() });

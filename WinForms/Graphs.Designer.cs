@@ -39,7 +39,6 @@ namespace WinForms
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -50,21 +49,13 @@ namespace WinForms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(209, 12);
+            this.button1.Location = new System.Drawing.Point(12, 314);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 45);
+            this.button1.Size = new System.Drawing.Size(344, 288);
             this.button1.TabIndex = 1;
             this.button1.Text = "Показать графики";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 3;
             // 
             // chart1
             // 
@@ -77,11 +68,11 @@ namespace WinForms
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Количество привитых";
             series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(555, 269);
+            this.chart1.Size = new System.Drawing.Size(555, 291);
             this.chart1.TabIndex = 4;
             this.chart1.Text = "chart1";
             // 
@@ -95,7 +86,7 @@ namespace WinForms
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Количество привитых";
             this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(555, 288);
             this.chart2.TabIndex = 5;
@@ -107,10 +98,11 @@ namespace WinForms
             this.chart3.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart3.Legends.Add(legend3);
-            this.chart3.Location = new System.Drawing.Point(12, 158);
+            this.chart3.Location = new System.Drawing.Point(12, 12);
             this.chart3.Name = "chart3";
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chart3.Series.Add(series3);
@@ -126,7 +118,6 @@ namespace WinForms
             this.Controls.Add(this.chart3);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Name = "Graphs";
             this.Text = "Graphs";
@@ -139,7 +130,6 @@ namespace WinForms
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
