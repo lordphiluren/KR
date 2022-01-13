@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineBlank", "ClassLibrary1\VaccineBlank.csproj", "{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineBlankTests", "VaccineBlankTests\VaccineBlankTests.csproj", "{F8B3FC8B-F3E9-4867-BCA3-04BD0A242AE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEDC37E0-4F2E-49B3-9476-CD19AD331E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B3FC8B-F3E9-4867-BCA3-04BD0A242AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B3FC8B-F3E9-4867-BCA3-04BD0A242AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B3FC8B-F3E9-4867-BCA3-04BD0A242AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B3FC8B-F3E9-4867-BCA3-04BD0A242AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
