@@ -24,6 +24,7 @@ namespace WinForms
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
 
+            // Данные для диграмм подготавливаются либо в отдельном классе либо в FileOperations
             var groupPatients = patients.GroupBy(p => p.VaccineDate.Date)
                             .Select(g => new { VDate = g.Key, Count = g.Count() });
             foreach (var group in groupPatients)
@@ -32,6 +33,7 @@ namespace WinForms
             }
 
             this.chart2.Series[0].Points.Clear();
+            // Данные для диграмм подготавливаются либо в отдельном классе либо в FileOperations
             var groupCities = patients.GroupBy(p => p.CityOfVaccination)
                                         .Select(g => new { City = g.Key, Count = g.Count() });
             foreach(var group in groupCities)
@@ -40,12 +42,15 @@ namespace WinForms
             }
 
             this.chart3.Series[0].Points.Clear();
+            // Данные для диграмм подготавливаются либо в отдельном классе либо в FileOperations
             var groupVaccines = patients.GroupBy(p => p.VaccineType)
                                         .Select(g => new { VaccineType = g.Key, Count = g.Count() });
             foreach(var group in groupVaccines)
             {
                 this.chart3.Series[0].Points.AddXY(group.VaccineType, group.Count);
             }
+
+            // А если тебя смущают анонимные типы, то во превых можно деанонимизировать, во вторых словарь, в третьих кортеж
         }
     }
 }
