@@ -56,6 +56,7 @@ namespace VaccineBlank
         {
             File.WriteAllText(path, Serializer(list));
         }
+        // Блэт! Я же сказал на вход метода подавать объект пациента
         public static List<Patient> AddPatient(List<Patient> list,
             string tbPSeries,
             string tbPNum,
@@ -92,19 +93,21 @@ namespace VaccineBlank
             }
             return list;
         }
-        public static List<Vaccine> AddVaccine(List<Vaccine> list, string tbType, decimal numVacAmount)
+
+        // смотри педыдущий блэт
+        public static List<Vaccine> AddVaccine(List<Vaccine> list, string tbType, int numVacAmount)
         {
-            int index = list.FindIndex(x => x.Type.ToUpper() == tbType.ToUpper());
-            if (index >= 0)
+            var vacine = list.FirstOrDefault(x => x.Type.ToUpper() == tbType.ToUpper());
+            if (vacine != null)
             {
-                list[index].Amount += Convert.ToInt32(numVacAmount);
+                vacine.Amount += numVacAmount;
             }
             else
             {
                 list.Add(new Vaccine()
                 {
                     Type = tbType,
-                    Amount = Convert.ToInt32(numVacAmount)
+                    Amount = numVacAmount
                 });
             }
             return list;
@@ -113,6 +116,7 @@ namespace VaccineBlank
         {
             List<Vaccine> vaccine = new List<Vaccine>();
             vaccine = FileOperations.Deserializer<Vaccine>(FileOperations.PathStorage);
+            // а чейтотут проверки нет? вдруг попытаются удалить несуществующую вакцину?
             int index = vaccine.FindIndex(x => x.Type == cbType);
             vaccine[index].Amount -= 1;
             vaccine.RemoveAll(x => x.Amount < 1);

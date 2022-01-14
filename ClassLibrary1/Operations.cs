@@ -86,15 +86,25 @@ namespace VaccineBlank
         {
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
-            var tempPatient = from patient in patients
-                              where patient.CityOfVaccination == city
-                              select patient;
-            patients = tempPatient.ToList();
-            var sortPatient = from patient in patients
-                              orderby patient.VaccineDate
-                              select patient;
-            patients = sortPatient.ToList();
-            return sortPatient.ToList();
+            // https://www.youtube.com/watch?v=6pLWKrcoJl4
+            //var tempPatient = from patient in patients
+            //                  where patient.CityOfVaccination == city
+            //                  select patient;
+            //patients = tempPatient.ToList();
+            //var sortPatient = from patient in patients
+            //                  orderby patient.VaccineDate
+            //                  select patient;
+
+            var result = patients.Where(p => p.CityOfVaccination == city)
+                .OrderBy(p => p.VaccineDate)
+                .ToList();
+            // The same as reult but another way
+            var result2 = from patient in patients
+                         where patient.CityOfVaccination == city
+                         orderby patient.VaccineDate
+                         select patient;
+
+            return result.ToList();
         }
 
     }
