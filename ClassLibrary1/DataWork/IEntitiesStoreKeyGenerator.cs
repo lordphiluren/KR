@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace VaccineBlank.DataWork
 {
     public interface IEntitiesStoreKeyGenerator<TEntity, TKey>
-        where TEntity: class, IEntity<TKey>
-        where TKey: IEquatable<TKey>, IComparable<TKey>
+        where TEntity : class, IEntity<TKey>
+        where TKey : IEquatable<TKey>, IComparable<TKey>
     {
         List<TEntity> Entities { get; set; }
         TKey GenerateKey();

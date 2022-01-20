@@ -21,22 +21,13 @@ namespace VaccineBlank.DataWork
         public int VaccineDose { get; set; }
         public string CityOfVaccination { get; set; }
         public int Id { get; set; }
-        
-        
+
         [JsonIgnore]
         public string FullInfo
         {
             get
             {
                 return (Surname + " " + Name + " " + Patronymic + " Дата рождения: " + BirthDate.ToString("dd.MM.yyyy") + " Дата последней вакцинации: " + VaccineDate.ToString("dd.MM.yyyy") + " " + VaccineType + " Доза вакцины: " + VaccineDose + " " + " Город вакцинации: " + CityOfVaccination);
-            }
-        }
-        [JsonIgnore]
-        public string PassportInfo
-        {
-            get
-            {
-                return (PassportSeries).ToString() + (PassportNumber).ToString();
             }
         }
         public int CompareTo(int other)

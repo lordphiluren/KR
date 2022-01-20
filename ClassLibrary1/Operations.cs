@@ -18,15 +18,15 @@ namespace VaccineBlank
             return cities;
         }
         
-        public static string CountPatientsRegion()
+        public static int CountPatientsRegion()
         {
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
-            string count = patients.Count().ToString();
+            var count = patients.Count();
             return count;
             
         }
-        public static string CountPatientsCity(string city)
+        public static int CountPatientsCity(string city)
         {
 
             List<Patient> patients = new List<Patient>();
@@ -34,11 +34,11 @@ namespace VaccineBlank
             var tempPatient = from patient in patients
                               where patient.CityOfVaccination == city
                               select patient;
-            string count = tempPatient.ToList().Count().ToString();
+            var count = tempPatient.ToList().Count();
             return count;
 
         }
-        public static string CountMoreThanOnceVaccinedPatientsRegion()
+        public static int CountMoreThanOnceVaccinedPatientsRegion()
         {
 
             List<Patient> patients = new List<Patient>();
@@ -46,10 +46,10 @@ namespace VaccineBlank
             var tempPatient = from patient in patients
                               where patient.VaccineDose > 1
                               select patient;
-            string count = tempPatient.ToList().Count().ToString();
+            var count = tempPatient.ToList().Count();
             return count;
         }
-        public static string CountMoreThanOnceVaccinedPatientsCity(string city)
+        public static int CountMoreThanOnceVaccinedPatientsCity(string city)
         {
 
             List<Patient> patients = new List<Patient>();
@@ -57,28 +57,28 @@ namespace VaccineBlank
             var tempPatient = from patient in patients
                               where patient.VaccineDose > 1 && patient.CityOfVaccination == city
                               select patient;
-            string count = tempPatient.ToList().Count().ToString();
+            var count = tempPatient.ToList().Count();
             return count;
         }
-        public static string CountMinorPatientsRegion()
+        public static int CountMinorPatientsRegion()
         {
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
             var tempPatient = from patient in patients
                               where patient.BirthDate.AddYears(18) > patient.VaccineDate
                               select patient;
-            string count = tempPatient.ToList().Count().ToString();
+            var count = tempPatient.ToList().Count();
             return count;
 
         }
-        public static string CountMinorPatientsCity(string city)
+        public static int CountMinorPatientsCity(string city)
         {
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
             var tempPatient = from patient in patients
                               where patient.BirthDate.AddYears(18) > patient.VaccineDate && patient.CityOfVaccination == city
                               select patient;
-            string count = tempPatient.ToList().Count().ToString();
+            var count = tempPatient.ToList().Count();
             return count;
 
         }

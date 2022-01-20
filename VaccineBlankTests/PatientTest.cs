@@ -115,8 +115,8 @@ namespace VaccineBlankTests
         public void TestCountPatientsRegion()
         {
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
-            string actual = Operations.CountPatientsRegion();
-            string expected = "9";
+            int actual = Operations.CountPatientsRegion();
+            int expected = 9;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
@@ -124,16 +124,16 @@ namespace VaccineBlankTests
         {
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
             string city = "Мурманск";
-            string actual = Operations.CountPatientsCity(city);
-            string expected = "4";
+            int actual = Operations.CountPatientsCity(city);
+            int expected = 4;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void TestCountMoreThanOnceVaccinedPatientsRegion()
         {
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
-            string actual = Operations.CountMoreThanOnceVaccinedPatientsRegion();
-            string expected = "4";
+            int actual = Operations.CountMoreThanOnceVaccinedPatientsRegion();
+            int expected = 4;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
@@ -141,16 +141,16 @@ namespace VaccineBlankTests
         {
             string city = "Мурманск";
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
-            string actual = Operations.CountMoreThanOnceVaccinedPatientsCity(city);
-            string expected = "3";
+            int actual = Operations.CountMoreThanOnceVaccinedPatientsCity(city);
+            int expected = 3;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void TestCountMinorPatientsRegion()
         {
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
-            string actual = Operations.CountMinorPatientsRegion();
-            string expected = "5";
+            int actual = Operations.CountMinorPatientsRegion();
+            int expected = 5;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
@@ -158,8 +158,8 @@ namespace VaccineBlankTests
         {
             string city = "Мончегорск";
             FileOperations.WriteFile(patients, FileOperations.PathPatient);
-            string actual = Operations.CountMinorPatientsCity(city);
-            string expected = "1";
+            int actual = Operations.CountMinorPatientsCity(city);
+            int expected = 1;
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]

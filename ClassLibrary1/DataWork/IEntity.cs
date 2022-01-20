@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace VaccineBlank.DataWork
 {
-    public interface IEntity<T> 
-        where T: IEquatable<T>, IComparable<T>
+    public interface IEntity<T>
+        where T : IEquatable<T>, IComparable<T>
     {
         T Id { get; set; }
     }

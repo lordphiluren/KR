@@ -40,7 +40,6 @@ namespace WinForms
         }
         private void Menu_Load(object sender, EventArgs e)
         {
-            Directory.CreateDirectory(@"c:\VaccinationPoint\");
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -67,7 +66,6 @@ namespace WinForms
                 try
                 {
                     try { FileOperations.RemoveVaccine(comboBoxVaccineType.Text); } catch { throw; }
-                    
                     FileOperations.WriteFile(FileOperations.AddPatient(FileOperations.ReadFile<Patient>(FileOperations.PathPatient), textBoxPSeries.Text,
                     textBoxPNum.Text,
                     textBoxSurname.Text,
@@ -77,7 +75,7 @@ namespace WinForms
                     dateTimeVaccineDate.Value,
                     comboBoxVaccineType.Text,
                     comboBoxCOV.Text), FileOperations.PathPatient);
-                   
+
                     textBoxPSeries.Clear();
                     textBoxPNum.Clear();
                     textBoxSurname.Clear();

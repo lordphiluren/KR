@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace VaccineBlank.DataWork
 {
-    public class JsonDataStorage<TEntity>: IStorage<TEntity>
+    public class JsonDataStorage<TEntity> : IStorage<TEntity>
     {
         public virtual string Path { get; set; }
         protected virtual string DefaultName => $"{typeof(TEntity).Name}.json";
         protected virtual string AvailableName => Path ?? DefaultName;
-        
+
         protected JsonSerializerOptions options = new JsonSerializerOptions
         {
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
@@ -27,7 +27,7 @@ namespace VaccineBlank.DataWork
             string jsonString = File.ReadAllText(AvailableName);
             return JsonSerializer.Deserialize<TEntity>(jsonString, options);
         }
-        
+
         public virtual void Save(TEntity data)
         {
             JsonSerializer.Serialize(data);

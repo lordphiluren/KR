@@ -76,9 +76,9 @@
   <ItemGroup>
     <Compile Include="DataWork\EntitiesDataStorage.cs" />
     <Compile Include="DataWork\IEntitiesDataStorage.cs" />
-    <Compile Include="DataWork\IntegerEntitiesStoreKeyGenerator.cs" />
     <Compile Include="DataWork\IEntitiesStoreKeyGenerator.cs" />
     <Compile Include="DataWork\IEntity.cs" />
+    <Compile Include="DataWork\IntegerEntitiesStoreKeyGenerator.cs" />
     <Compile Include="DataWork\IStorage.cs" />
     <Compile Include="DataWork\JsonDataStorage.cs" />
     <Compile Include="DataWork\Patient.cs" />

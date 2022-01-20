@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace VaccineBlank.DataWork
 {
     public class IntegerEntitiesStoreKeyGenerator<TEntity> : IEntitiesStoreKeyGenerator<TEntity, int>
-        where TEntity: class, IEntity<int>
+        where TEntity : class, IEntity<int>
     {
         public List<TEntity> Entities { get; set; }
         public int GenerateKey()
