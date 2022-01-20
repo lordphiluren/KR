@@ -56,8 +56,7 @@ namespace VaccineBlank
         {
             File.WriteAllText(path, Serializer(list));
         }
-        public static List<Patient> AddPatient(List<Patient> list,
-            string tbPSeries,
+        public static List<Patient> AddPatient(List<Patient> list, string tbPSeries,
             string tbPNum,
             string tbSurname,
             string tbName,
@@ -92,19 +91,19 @@ namespace VaccineBlank
             }
             return list;
         }
-        public static List<Vaccine> AddVaccine(List<Vaccine> list, string tbType, decimal numVacAmount)
+        public static List<Vaccine> AddVaccine(List<Vaccine> list, string tbType, int numVacAmount)
         {
-            int index = list.FindIndex(x => x.Type.ToUpper() == tbType.ToUpper());
-            if (index >= 0)
+            var vaccine = list.FirstOrDefault(x => x.Type.ToUpper() == tbType.ToUpper());
+            if (vaccine != null)
             {
-                list[index].Amount += Convert.ToInt32(numVacAmount);
+                vaccine.Amount += numVacAmount;
             }
             else
             {
                 list.Add(new Vaccine()
                 {
                     Type = tbType,
-                    Amount = Convert.ToInt32(numVacAmount)
+                    Amount = numVacAmount
                 });
             }
             return list;
@@ -113,9 +112,13 @@ namespace VaccineBlank
         {
             List<Vaccine> vaccine = new List<Vaccine>();
             vaccine = FileOperations.Deserializer<Vaccine>(FileOperations.PathStorage);
-            int index = vaccine.FindIndex(x => x.Type == cbType);
-            vaccine[index].Amount -= 1;
-            vaccine.RemoveAll(x => x.Amount < 1);
+            int index = vaccine.FindIndex (x => x.Type == cbType);
+            if (index >= 0)
+            {
+                vaccine[index].Amount -= 1;
+                vaccine.RemoveAll(x => x.Amount < 1);
+            }
+            else { throw new Exception(); }
             File.WriteAllText(PathStorage, Serializer<Vaccine>(vaccine));
         }
         public static void DeleteFile(string path)

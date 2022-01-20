@@ -21,27 +21,21 @@ namespace WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             this.chart1.Series[0].Points.Clear();
-            List<Patient> patients = new List<Patient>();
-            patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
-
-            var groupPatients = patients.GroupBy(p => p.VaccineDate.Date)
-                            .Select(g => new { VDate = g.Key, Count = g.Count() });
-            foreach (var group in groupPatients)
+            var groupPatients = Operations.CountGraph();
+            foreach (var p in groupPatients)
             {
-                this.chart1.Series[0].Points.AddXY(group.VDate, group.Count);
+                this.chart1.Series[0].Points.AddXY(p.VDate, p.Count);
             }
 
             this.chart2.Series[0].Points.Clear();
-            var groupCities = patients.GroupBy(p => p.CityOfVaccination)
-                                        .Select(g => new { City = g.Key, Count = g.Count() });
-            foreach(var group in groupCities)
+            var groupCities = Operations.CountChart();
+            foreach (var group in groupCities)
             {
                 this.chart2.Series[0].Points.AddXY(group.City, group.Count);
             }
 
             this.chart3.Series[0].Points.Clear();
-            var groupVaccines = patients.GroupBy(p => p.VaccineType)
-                                        .Select(g => new { VaccineType = g.Key, Count = g.Count() });
+            var groupVaccines = Operations.CountPie();
             foreach(var group in groupVaccines)
             {
                 this.chart3.Series[0].Points.AddXY(group.VaccineType, group.Count);

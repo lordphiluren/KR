@@ -86,15 +86,34 @@ namespace VaccineBlank
         {
             List<Patient> patients = new List<Patient>();
             patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
-            var tempPatient = from patient in patients
-                              where patient.CityOfVaccination == city
-                              select patient;
-            patients = tempPatient.ToList();
-            var sortPatient = from patient in patients
-                              orderby patient.VaccineDate
-                              select patient;
-            patients = sortPatient.ToList();
-            return sortPatient.ToList();
+            var sortPatient = patients.Where(p => p.CityOfVaccination == city)
+                                      .OrderBy(p => p.VaccineDate)
+                                      .ToList();
+            return sortPatient;
+        }
+        public static IEnumerable<(DateTime VDate, int Count)> CountGraph()
+        {
+            List<Patient> patients = new List<Patient>();
+            patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
+            var tempPatient = patients.GroupBy(p => p.VaccineDate.Date)
+                            .Select(g => (VDate : g.Key, Count : g.Count()));
+            return tempPatient;
+        }
+        public static IEnumerable<(string City, int Count)> CountChart()
+        {
+            List<Patient> patients = new List<Patient>();
+            patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
+            var tempPatient = patients.GroupBy(p => p.CityOfVaccination)
+                            .Select(g => (City: g.Key, Count: g.Count()));
+            return tempPatient;
+        }
+        public static IEnumerable<(string VaccineType, int Count)> CountPie()
+        {
+            List<Patient> patients = new List<Patient>();
+            patients = FileOperations.Deserializer<Patient>(FileOperations.PathPatient);
+            var tempPatient = patients.GroupBy(p => p.VaccineType)
+                            .Select(g => (VaccineType: g.Key, Count: g.Count()));
+            return tempPatient;
         }
 
     }

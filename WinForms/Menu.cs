@@ -64,23 +64,29 @@ namespace WinForms
         {
             if (textBoxPSeries.Text.Length != 0 && textBoxPNum.Text.Length != 0 && textBoxName.Text.Length != 0 && textBoxSurname.Text.Length != 0 && comboBoxCOV.SelectedItem != null && comboBoxVaccineType.SelectedItem != null)
             {
-                FileOperations.WriteFile(FileOperations.AddPatient(FileOperations.ReadFile<Patient>(FileOperations.PathPatient), textBoxPSeries.Text,
-                  textBoxPNum.Text,
-                  textBoxSurname.Text,
-                  textBoxName.Text,
-                  textBoxPatronymic.Text,
-                  dateTimePickerBDAY.Value,
-                  dateTimeVaccineDate.Value,
-                  comboBoxVaccineType.Text,
-                  comboBoxCOV.Text), FileOperations.PathPatient);
-                FileOperations.RemoveVaccine(comboBoxVaccineType.Text);
-                textBoxPSeries.Clear();
-                textBoxPNum.Clear();
-                textBoxSurname.Clear();
-                textBoxName.Clear();
-                textBoxPatronymic.Clear();
-                dateTimePickerBDAY.Value = dateTimePickerBDAY.MinDate;
-                comboBoxVaccineType.ResetText();
+                try
+                {
+                    try { FileOperations.RemoveVaccine(comboBoxVaccineType.Text); } catch { throw; }
+                    
+                    FileOperations.WriteFile(FileOperations.AddPatient(FileOperations.ReadFile<Patient>(FileOperations.PathPatient), textBoxPSeries.Text,
+                    textBoxPNum.Text,
+                    textBoxSurname.Text,
+                    textBoxName.Text,
+                    textBoxPatronymic.Text,
+                    dateTimePickerBDAY.Value,
+                    dateTimeVaccineDate.Value,
+                    comboBoxVaccineType.Text,
+                    comboBoxCOV.Text), FileOperations.PathPatient);
+                   
+                    textBoxPSeries.Clear();
+                    textBoxPNum.Clear();
+                    textBoxSurname.Clear();
+                    textBoxName.Clear();
+                    textBoxPatronymic.Clear();
+                    dateTimePickerBDAY.Value = dateTimePickerBDAY.MinDate;
+                    comboBoxVaccineType.ResetText();
+                }
+                catch { MessageBox.Show("Вакцины нет в наличии", "Ошибка", MessageBoxButtons.OK); }
             }
             else { MessageBox.Show("Заполните форму","Ошибка",MessageBoxButtons.OK); }
         }

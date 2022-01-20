@@ -74,6 +74,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataWork\EntitiesDataStorage.cs" />
+    <Compile Include="DataWork\IEntitiesDataStorage.cs" />
+    <Compile Include="DataWork\IntegerEntitiesStoreKeyGenerator.cs" />
+    <Compile Include="DataWork\IEntitiesStoreKeyGenerator.cs" />
+    <Compile Include="DataWork\IEntity.cs" />
+    <Compile Include="DataWork\IStorage.cs" />
+    <Compile Include="DataWork\JsonDataStorage.cs" />
+    <Compile Include="DataWork\Patient.cs" />
+    <Compile Include="DataWork\Vaccine.cs" />
+    <Compile Include="DataWork\VaccineBlankData.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="FileOperations.cs" />

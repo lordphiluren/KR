@@ -32,7 +32,7 @@ namespace WinForms
             if (textBox1.Text.Length != 0)
             {
                 FileOperations.WriteFile(FileOperations.AddVaccine(FileOperations.ReadFile<Vaccine>(FileOperations.PathStorage),
-                   textBox1.Text, numUpDownVaccineAmount.Value), FileOperations.PathStorage);
+                   textBox1.Text, (int)numUpDownVaccineAmount.Value), FileOperations.PathStorage);
                 List<Vaccine> vaccine = new List<Vaccine>();
                 vaccine = FileOperations.Deserializer<Vaccine>(FileOperations.PathStorage);
                 listBoxStorage.DataSource = vaccine;
